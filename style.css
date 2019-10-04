@@ -1,3 +1,9 @@
-body {
+canvas {
     width: 1100px;
+    height: auto;
+}
+
+#information {
+    display: none;
+    position: absolute;
 }
