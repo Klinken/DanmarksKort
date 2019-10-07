@@ -98,35 +98,46 @@ var cities = [
 	['aarhus',25]
 ];
 
-var position = (mouse) => {
-	var x = mouse.clientX;
-	var y = mouse.clientY;
-	document.getElementById('test').innerHTML = "Hello" + x;
-};
-
 var setColor = () => {
     for (var i = 0; i < cities.length; i++){
+	var element = document.getElementById(cities[i][0]);
 	if(cities[i][1] > 30){
-    document.getElementById(cities[i][0]).style.fill = 'hsl(0, 82%, 42%)';
+     element.style.fill = 'hsl(0, 82%, 42%)';
 	} else if (cities[i][1] > 20){
-	document.getElementById(cities[i][0]).style.fill = 'hsl(0, 82%, 52%)';	
+	 element.style.fill = 'hsl(0, 82%, 52%)';	
 	} else if (cities[i][1] > 15){
-		document.getElementById(cities[i][0]).style.fill = 'hsl(0, 82%, 57%)';	
+	 element.style.fill = 'hsl(0, 82%, 57%)';	
 	} else if (cities[i][1] > 0){
-		document.getElementById(cities[i][0]).style.fill = 'hsl(0, 82%, 72%)';	
+	 element.style.fill = 'hsl(0, 82%, 72%)';	
 	}	else {
-		document.getElementById(cities[i][0]).style.fill = '#add8e6';	
+	 element.style.fill = '#add8e6';
 	} 
 }
 };
 
-var onHover = (x) => {
-		var infoBox = document.getElementById('information');
-		x.style.cursor = 'help';
-		infoBox.style.display = "block";
-		
+
+var onHover = (event, x) => {
+	var mouseX = event.pageX - 81;
+	var mouseY = event.pageY - 55;
+	var infoBox = document.getElementById('information');
+	var waitinglist;
+	for (var i = 0; i < cities.length; i++){
+		if(cities[i][0] === x.id){
+			waitinglist = cities[i][1];
+		}
+	}
+	if(waitinglist === 0){
+		null;
+	} else {
+	x.style.cursor = "none";
+	infoBox.style.display = "block";
+	infoBox.style.top = mouseY + "px";
+	infoBox.style.left = mouseX + "px";
+	infoBox.innerHTML = "Nuværende venteliste: " + waitinglist;
+	}
 };
 
 var onOut = (x) => {
-	document.getElementById('information').style.display = "none";
+	var infoBox = document.getElementById('information');
+	infoBox.style.display = "none";
 }
