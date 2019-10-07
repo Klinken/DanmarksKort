@@ -1,6 +1,7 @@
 #kort {
     margin: 0 auto;
     width: 1200px;
+    height: auto;
 }
 
 #information {
@@ -11,6 +12,7 @@
     background-color: #00a0df;
     padding: 10px;
     font-weight: bold;
+    text-overflow: visible;
 }
 
 #information::after {
@@ -126,7 +128,7 @@
 #aalborg,
 #aarhus,
 #bugt {
-    fill: lightblue;
-    stroke: lightblue;
+    fill: #add8e6;
+    stroke: #add8e6;
     stroke-width:1px;
 }
