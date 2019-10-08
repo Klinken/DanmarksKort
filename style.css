@@ -4,6 +4,10 @@
     height: auto;
 }
 
+#kort h1 {
+    text-align: center;
+}
+
 #information {
     display: none;
     position: absolute;

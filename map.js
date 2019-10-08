@@ -105,10 +105,12 @@ var setColor = () => {
      element.style.fill = 'hsl(0, 82%, 42%)';
 	} else if (cities[i][1] > 20){
 	 element.style.fill = 'hsl(0, 82%, 52%)';	
-	} else if (cities[i][1] > 15){
+	} else if (cities[i][1] > 8){
 	 element.style.fill = 'hsl(0, 82%, 57%)';	
+	} else if (cities[i][1] > 4){
+		element.style.fill = 'hsl(0, 82%, 65%)';	
 	} else if (cities[i][1] > 0){
-	 element.style.fill = 'hsl(0, 82%, 72%)';	
+	 element.style.fill = 'hsl(0, 82%, 82%)';	
 	}	else {
 	 element.style.fill = '#add8e6';
 	} 
