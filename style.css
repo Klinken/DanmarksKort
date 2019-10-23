@@ -1,38 +1,85 @@
+/**
+ * MAP OVER DENMARK
+ * -----------------
+ * 
+ * Styling of the MAP area, hidden text-object and table.
+ * 
+ */
+
 #kort {
     margin: 0 auto;
-    width: 1200px;
+    max-width: 1200px;
     height: auto;
 }
 
-#kort h1 {
-    text-align: center;
-}
+/* Hidden element, which shows text */
 
-#information {
+#kort #kort-information {
     display: none;
     position: absolute;
     z-index: 1000;
     color: white;
     background-color: #00a0df;
     padding: 10px;
-    font-weight: bold;
-    text-overflow: visible;
+    width: 160px;
+    justify-items: center;
+    gap: 5px;
 }
 
-#information::after {
-    content: '';
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 20px solid transparent;
-	border-top-color: #00a0df;
-	border-bottom: 0;
-	border-left: 0;
-	margin-left: -10px;
-	margin-bottom: -20px;
+/* Used for the text element that shows the number */
+#kort-information-title {
+    font-weight: bold;
+    font-size: 18px;
 }
+
+#kort #kort-information::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: #00a0df;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -10px;
+    margin-bottom: -20px;
+}
+
+/* Design of the table */
+
+#kort table {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#cell-one-kort {
+    background-color: #add8e6;
+}
+
+#cell-two-kort {
+    background-color: hsl(0, 82%, 82%);
+}
+
+#cell-three-kort {
+    background-color: hsl(0, 82%, 65%);
+}
+
+#cell-four-kort {
+    background-color: hsl(0, 82%, 57%);
+}
+
+#cell-five-kort {
+    background-color: hsl(0, 82%, 52%);
+}
+
+#cell-six-kort {
+    background-color: hsl(0, 82%, 42%);
+}
+
+/* SVG base colors */
 
 #albertslund,
 #alleroed,
@@ -134,5 +181,5 @@
 #bugt {
     fill: #add8e6;
     stroke: #add8e6;
-    stroke-width:1px;
+    stroke-width: 1px;
 }
