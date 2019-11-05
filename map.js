@@ -7,6 +7,7 @@ var cities = [
 	['billund', 0, 'Billund'],
 	['broendby', 0, 'Brøndby'],
 	['broenderslev', 0, 'Brønderslev'],
+	['bornholm', 0, 'Bornholm'],
 	['dragoer', 0, 'Dragør'],
 	['egedal', 0, 'Egedal'],
 	['esbjerg', 0, 'Esbjerg'],

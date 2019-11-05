@@ -79,6 +79,11 @@
     background-color: hsl(0, 82%, 42%);
 }
 
+/* SVG Line */
+#kort .st1 {
+    stroke: #dcdcdc;
+}
+
 /* SVG base colors */
 
 #albertslund,
