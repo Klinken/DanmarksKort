@@ -135,7 +135,6 @@ function onHover(event, x) {
 	if (waitinglist === 0) {
 		null;
 	} else {
-
 		infoBox.style.display = "grid";
 		infoBox.style.top = mouseY + "px";
 		infoBox.style.left = mouseX + "px";
