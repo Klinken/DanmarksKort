@@ -14,7 +14,7 @@
 
 /* Hidden element, which shows text */
 
-#map #map-information {
+#map #information-marker {
     display: none;
     position: absolute;
     z-index: 1000;
@@ -27,12 +27,12 @@
 }
 
 /* Used for the text element that shows the number */
-#map-information-title {
+#information-marker-title {
     font-weight: bold;
     font-size: 18px;
 }
 
-#map #map-information::after {
+#map #information-marker::after {
     content: '';
     position: absolute;
     bottom: 0;

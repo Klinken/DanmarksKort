@@ -1,7 +1,7 @@
-'use strict'
+"use strict";
 
 var municipals = [
-	/* Structure of the array is as follows [ID, Waitinglist, Municipals]   */
+	/* Structure of the array is as follows [CSS-ID, Waitinglist, Municipal]   */
 	['albertslund', 3, 'Albertslund'],
 	['alleroed', 10, 'Allerød'],
 	['assens', 20, 'Assens'],
@@ -105,25 +105,25 @@ var municipals = [
 function setColor() {
 
 	for (var i = 0; i < municipals.length; i++) {
-		var element = document.getElementById(municipals[i][0]);
+		var municipal = document.getElementById(municipals[i][0]);
 
 		if (municipals[i][1] > 30) {
-			element.style.fill = 'hsl(0, 82%, 42%)';
+			municipal.style.fill = 'hsl(0, 82%, 42%)';
 
 		} else if (municipals[i][1] > 20) {
-			element.style.fill = 'hsl(0, 82%, 52%)';
+			municipal.style.fill = 'hsl(0, 82%, 52%)';
 
 		} else if (municipals[i][1] > 8) {
-			element.style.fill = 'hsl(0, 82%, 57%)';
+			municipal.style.fill = 'hsl(0, 82%, 57%)';
 
 		} else if (municipals[i][1] > 4) {
-			element.style.fill = 'hsl(0, 82%, 65%)';
+			municipal.style.fill = 'hsl(0, 82%, 65%)';
 
 		} else if (municipals[i][1] > 0) {
-			element.style.fill = 'hsl(0, 82%, 82%)';
+			municipal.style.fill = 'hsl(0, 82%, 82%)';
 
 		} else {
-			element.style.fill = '#add8e6';
+			municipal.style.fill = '#add8e6';
 
 		}
 	}
@@ -134,7 +134,7 @@ setColor();
 function onHover(event, x) {
 	var mouseX = event.pageX - 80;
 	var mouseY = event.pageY - 87;
-	var mapInformation = document.getElementById('map-information');
+	var marker = document.getElementById('information-marker');
 	var waitinglist;
 	var currentMunicipal;
 
@@ -147,20 +147,17 @@ function onHover(event, x) {
 		}
 	}
 
-	if (waitinglist === 0) {
-		null;
-
-	} else {
-		mapInformation.style.display = "grid";
-		mapInformation.style.top = mouseY + "px";
-		mapInformation.style.left = mouseX + "px";
-		mapInformation.innerHTML = "<span id='map-information-title'>" + currentMunicipal + "</span>" + "<span>" + waitinglist + "</span>";
+	if (waitinglist != 0) {		
+		marker.style.display = "grid";
+		marker.style.top = mouseY + "px";
+		marker.style.left = mouseX + "px";
+		marker.innerHTML = "<span id='information-marker-title'>" + currentMunicipal + "</span>" + "<span>" + waitinglist + "</span>";
 
 	}
 }
 
 function onOut(x) {
-	var mapInformation = document.getElementById('map-information');
+	var marker = document.getElementById('information-marker');
 
-	mapInformation.style.display = "none";
+	marker.style.display = "none";
 }
