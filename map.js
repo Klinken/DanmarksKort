@@ -1,5 +1,7 @@
-var cities = [
-	/* Structure of the array is as follows [ID, Waitinglist, City]   */
+'use strict'
+
+var municipals = [
+	/* Structure of the array is as follows [ID, Waitinglist, Municipals]   */
 	['albertslund', 3, 'Albertslund'],
 	['alleroed', 10, 'Allerød'],
 	['assens', 20, 'Assens'],
@@ -101,51 +103,64 @@ var cities = [
 ];
 
 function setColor() {
-	for (var i = 0; i < cities.length; i++) {
-		var element = document.getElementById(cities[i][0]);
-		if (cities[i][1] > 30) {
+
+	for (var i = 0; i < municipals.length; i++) {
+		var element = document.getElementById(municipals[i][0]);
+
+		if (municipals[i][1] > 30) {
 			element.style.fill = 'hsl(0, 82%, 42%)';
-		} else if (cities[i][1] > 20) {
+
+		} else if (municipals[i][1] > 20) {
 			element.style.fill = 'hsl(0, 82%, 52%)';
-		} else if (cities[i][1] > 8) {
+
+		} else if (municipals[i][1] > 8) {
 			element.style.fill = 'hsl(0, 82%, 57%)';
-		} else if (cities[i][1] > 4) {
+
+		} else if (municipals[i][1] > 4) {
 			element.style.fill = 'hsl(0, 82%, 65%)';
-		} else if (cities[i][1] > 0) {
+
+		} else if (municipals[i][1] > 0) {
 			element.style.fill = 'hsl(0, 82%, 82%)';
+
 		} else {
 			element.style.fill = '#add8e6';
+
 		}
 	}
-};
+}
 
+setColor();
 
 function onHover(event, x) {
 	var mouseX = event.pageX - 80;
 	var mouseY = event.pageY - 87;
-	var infoBox = document.getElementById('kort-information');
+	var mapInformation = document.getElementById('map-information');
 	var waitinglist;
-	var city;
-	for (var i = 0; i < cities.length; i++) {
-		if (cities[i][0] === x.id) {
-			waitinglist = cities[i][1];
-			city = cities[i][2];
+	var currentMunicipal;
+
+	for (var i = 0; i < municipals.length; i++) {
+
+		if (municipals[i][0] === x.id) {
+			waitinglist = municipals[i][1];
+			currentMunicipal = municipals[i][2];
+
 		}
 	}
+
 	if (waitinglist === 0) {
 		null;
+
 	} else {
+		mapInformation.style.display = "grid";
+		mapInformation.style.top = mouseY + "px";
+		mapInformation.style.left = mouseX + "px";
+		mapInformation.innerHTML = "<span id='map-information-title'>" + currentMunicipal + "</span>" + "<span>" + waitinglist + "</span>";
 
-		infoBox.style.display = "grid";
-		infoBox.style.top = mouseY + "px";
-		infoBox.style.left = mouseX + "px";
-		infoBox.innerHTML = "<span id='kort-information-title'>" + city + "</span>" + "<span>" + waitinglist + "</span>";
 	}
-};
-
-function onOut(x) {
-	var infoBox = document.getElementById('kort-information');
-	infoBox.style.display = "none";
 }
 
-setColor();
+function onOut(x) {
+	var mapInformation = document.getElementById('map-information');
+
+	mapInformation.style.display = "none";
+}
