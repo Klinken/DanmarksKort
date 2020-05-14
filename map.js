@@ -1,7 +1,7 @@
 "use strict";
 
 var municipals = [
-	/* Structure of the array is as follows [CSS-ID, Waitinglist, Municipal]   */
+	/* Structure of the array is as follows [ID, Waitinglist, Name of municipal]   */
 	['albertslund', 3, 'Albertslund'],
 	['alleroed', 10, 'Allerød'],
 	['assens', 20, 'Assens'],
@@ -12,7 +12,7 @@ var municipals = [
 	['bornholm', 0, 'Bornholm'],
 	['dragoer', 0, 'Dragør'],
 	['egedal', 0, 'Egedal'],
-	['esbjerg', 0, 'Esbjerg'],
+	['esbjerg', 10, 'Esbjerg'],
 	['fanoe', 0, 'Fanø'],
 	['favrskov', 0, 'Favrskov'],
 	['faxe', 0, 'Faxe'],
@@ -146,7 +146,7 @@ function onHover(event, x) {
 		}
 	}
 
-	if (waitinglist != 0) {		
+	if (waitinglist != 0) {
 		marker.style.display = "grid";
 		marker.style.top = mouseY + "px";
 		marker.style.left = mouseX + "px";
@@ -157,14 +157,17 @@ function onHover(event, x) {
 
 function onOut(x) {
 	var marker = document.getElementById('information-marker');
-
 	marker.style.display = "none";
+
 }
 
 /* Set onHover and onOut effect */
 
 for (let index = 0; index < municipals.length; index++) {
-	document.getElementById(municipals[index][0]).addEventListener("mousemove", function(){onHover(event, this)});
-	document.getElementById(municipals[index][0]).addEventListener("mouseout", function(){onOut(this)});
-
+	document.getElementById(municipals[index][0]).addEventListener("mousemove", function () {
+		onHover(event, this)
+	});
+	document.getElementById(municipals[index][0]).addEventListener("mouseout", function () {
+		onOut(this)
+	});
 }
