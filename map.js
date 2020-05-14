@@ -98,8 +98,8 @@ var municipals = [
 	['vordingborg', 0, 'Vordingborg'],
 	['aeroe', 0, 'Ærø'],
 	['aabenraa', 0, 'Aabenraa'],
-	['aalborg', 0, 'Aalborg'],
-	['aarhus', 0, 'Aarhus']
+	['aalborg', 1, 'Aalborg'],
+	['aarhus', 2, 'Aarhus']
 ];
 
 function setColor() {
@@ -124,7 +124,6 @@ function setColor() {
 
 		} else {
 			municipal.style.fill = '#add8e6';
-
 		}
 	}
 }
@@ -160,4 +159,12 @@ function onOut(x) {
 	var marker = document.getElementById('information-marker');
 
 	marker.style.display = "none";
+}
+
+/* Set onHover and onOut effect */
+
+for (let index = 0; index < municipals.length; index++) {
+	document.getElementById(municipals[index][0]).addEventListener("mousemove", function(){onHover(event, this)});
+	document.getElementById(municipals[index][0]).addEventListener("mouseout", function(){onOut(this)});
+
 }
