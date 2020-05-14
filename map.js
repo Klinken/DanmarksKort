@@ -130,21 +130,12 @@ function setColor() {
 
 setColor();
 
-function onHover(event, x) {
+function onHover(event, x, waitlist, municipal) {
 	var mouseX = event.pageX - 80;
 	var mouseY = event.pageY - 87;
 	var marker = document.getElementById('information-marker');
-	var waitinglist;
-	var currentMunicipal;
-
-	for (var i = 0; i < municipals.length; i++) {
-
-		if (municipals[i][0] === x.id) {
-			waitinglist = municipals[i][1];
-			currentMunicipal = municipals[i][2];
-
-		}
-	}
+	var waitinglist = waitlist;
+	var currentMunicipal = municipal;
 
 	if (waitinglist != 0) {
 		marker.style.display = "grid";
@@ -165,7 +156,7 @@ function onOut(x) {
 
 for (let index = 0; index < municipals.length; index++) {
 	document.getElementById(municipals[index][0]).addEventListener("mousemove", function () {
-		onHover(event, this)
+		onHover(event, this, municipals[index][1], municipals[index][2])
 	});
 	document.getElementById(municipals[index][0]).addEventListener("mouseout", function () {
 		onOut(this)

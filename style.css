@@ -24,6 +24,7 @@
     width: 160px;
     justify-items: center;
     gap: 5px;
+    border-radius: 10px;
 }
 
 /* Used for the text element that shows the number */
